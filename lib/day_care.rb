@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DayCare
   attr_reader :name,
               :customers
@@ -18,9 +20,7 @@ class DayCare
   end
 
   def unfed_pets
-    pets = @customers.map do |customer|
-      customer.pets
-    end.flatten
+    pets = @customers.map(&:pets).flatten
     pets.find_all do |pet|
       !pet.fed?
     end

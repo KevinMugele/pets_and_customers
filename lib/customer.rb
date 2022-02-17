@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Customer
   attr_reader :name,
               :id,
@@ -17,5 +19,9 @@ class Customer
 
   def charge(amount)
     @outstanding_balance += amount
+  end
+
+  def count_of_pets
+    @pets.length
   end
 end

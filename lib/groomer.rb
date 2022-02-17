@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Groomer
   attr_reader :name,
               :customers
@@ -18,9 +20,7 @@ class Groomer
   end
 
   def number_of_pets(type)
-    pets = @customers.map do |customer|
-      customer.pets
-    end.flatten
+    pets = @customers.map(&:pets).flatten
     pets.count do |pet|
       pet.type == type
     end
